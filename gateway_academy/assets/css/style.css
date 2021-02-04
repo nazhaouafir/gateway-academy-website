@@ -40,7 +40,18 @@ h1, h2, h3, h4, h5, h6 {
   justify-items: center;
   align-items: center;
 }
-
+.programme .content ul {
+  list-style: none;
+}
+.programme .content ul i{
+  font-size: 20px;
+  padding-right: 4px;
+  color: #00ABE3;
+}
+.prgrm img{
+  width: 900px;
+  height: 400px;
+}
 .gateway-img {
   width: 600px;
   height: 300px;
