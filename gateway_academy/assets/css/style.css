@@ -19,10 +19,9 @@ a {
 
 
 a:hover {
-  color:#aa9c98;
+  color:#aa9c9807;
   text-decoration: none;
 }
-
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
@@ -109,7 +108,7 @@ breadcrumbs
   background: #aa9c98;
   color: #fff;
 }
-gateway-img
+
 .carousel-inner img {
   margin-top: 50px;
     width: 100%;
@@ -580,6 +579,10 @@ section {
   margin: 4px 10px;
 }
 
+#datepicker > span:hover{
+  cursor: pointer;
+}
+
 .section-title p {
   margin: 0;
   margin: 0;
@@ -595,6 +598,22 @@ section {
 }
 .preinsc .container{
    padding: 1px 1px 1px 200px;
+}
+.gallery{
+  margin: 10px 50px 10px 50px;
+}
+
+.gallery a img{
+  transition: 0.5s;
+  padding: 15px;
+  width: 300px;
+  height: 200px;
+
+  
+}
+.gallery img:hover{
+  transform: scale(1.1);
+
 }
 .form-control{
   display: block;
