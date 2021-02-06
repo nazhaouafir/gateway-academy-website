@@ -23,6 +23,7 @@ a:hover {
   text-decoration: none;
 }
 
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
 }
@@ -40,6 +41,31 @@ h1, h2, h3, h4, h5, h6 {
   justify-items: center;
   align-items: center;
 }
+
+.table{
+  width:900px;
+}
+.table-responsive {
+  display:contents;
+  width: 1000px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.table thead th{
+text-align: center;
+ vertical-align: bottom;
+  border-bottom: 2px solid #0baee4 ;
+ border-top: 1px solid #00ABE3;
+ border-left: 1px solid #00ABE3;
+ border-right: 1px solid #00ABE3;
+}
+.table td, .table th{
+  padding: .75rem;
+    vertical-align: top;
+    border: 1px solid #62aaf3;
+    
+}
+
 .programme .content ul {
   list-style: none;
 }
@@ -48,29 +74,11 @@ h1, h2, h3, h4, h5, h6 {
   padding-right: 4px;
   color: #00ABE3;
 }
+breadcrumbs
 .prgrm img{
   width: 900px;
   height: 400px;
 }
-.gateway-img {
-  width: 600px;
-  height: 300px;
-  z-index: 1;
-  grid-column: span 2;
-  max-width: 100%;
-  margin-bottom: -52%;
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-  transform: scale(1);
-  transition: all .25s;
-}
-   .gateway-img:nth-child(7n + 1) {
-    grid-column: 2 / span 2;
-  }
-  
-  .gateway-img:hover {
-    z-index: 2;
-    transform: scale(2);
-  }
 
 /*--------------------------------------------------------------
 # Back to top button
@@ -101,11 +109,12 @@ h1, h2, h3, h4, h5, h6 {
   background: #aa9c98;
   color: #fff;
 }
-/* .carousel-inner img {
+gateway-img
+.carousel-inner img {
   margin-top: 50px;
     width: 100%;
     height: 100%;
-  }; */
+  };
 
 /*--------------------------------------------------------------
 # Preloader
@@ -578,9 +587,45 @@ section {
   font-weight: 700;
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
-  color: #37423b;
+  color: #202629;
 }
-
+.lets h3 i{
+  color: #00ABE3;
+  
+}
+.preinsc .container{
+   padding: 1px 1px 1px 200px;
+}
+.form-control{
+  display: block;
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #dcf4fb45;
+  background-clip: padding-box;
+  border: 1px solid #608ab5;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.lets h3 {
+  font-family: 'Roboto';
+  margin-top: 40px;
+  margin-bottom: 30px;
+  color: #0f5369;
+  text-align: center;
+}
+.preinscr{
+  font-family:'Arial Narrow Bold';
+  margin-top: 73px;
+  text-align: center;
+  background: #216981;
+  padding: 30px 0;
+  color: #fff;
+}
 .breadcrumbs {
   margin-top: 73px;
   text-align: center;
