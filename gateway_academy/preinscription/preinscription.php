@@ -107,10 +107,10 @@
               <li><a href="../tech-recep-detail.html">Technicien En Réception D'Hôtel</a></li>
             </ul>
           </li>
-          <li class="active"><a href="preinscription.html">Préinscription </a></li>
+          <li class="active"><a href="preinscription.php">Préinscription </a></li>
           <li> <a href="../gallery.html">Galerie</a></li>
 
-          <li><a href="../contact.hphp">Contact</a></li>
+          <li><a href="../contact.php">Contact</a></li>
  
         </ul>
       </nav><!-- .nav-menu -->
