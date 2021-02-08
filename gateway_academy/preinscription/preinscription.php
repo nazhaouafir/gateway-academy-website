@@ -1,5 +1,52 @@
+<?php
+ 
+ $message_sent = false;
+ if(isset($_POST['submit'])){
+	
+	 $lastName = trim(htmlspecialchars($_POST['lastName']));
+	 $firstName = trim(htmlspecialchars($_POST('firstName')));
+	 $email = trim(htmlspecialchars($_POST['email']));
+	 $phone = htmlspecialchars($_POST['phone']);
+	 $sexe = htmlspecialchars($_POST['sexe']);
+	 $date= htmlspecialchars($_POST['date']);
+	 $code_massar = htmlspecialchars($_POST['code_massar']);
+	//  $photo = htmlspecialchars($_POST['photo']);
+	 $adresse = htmlspecialchars($_POST['adresse']);
+	 $country = htmlspecialchars($_POST['country']);
+	 $niveau = htmlspecialchars($_POST['niveau']);
+	 $formation = htmlspecialchars($_POST['formation']);
+      
+	 $to = "nazha.ouafir@gmail.com";
+	 $subject = "Préinscription";
+	 $inscription = "Nom et prénom :".$lastName." ".$firstName."\r\n";
+	 $inscription .= "E-mail :".$email."\r\n";
+	 $inscription .= "Téléphone : ".$phone."\r\n";
+	 $inscription .= "Sexe : ".$sexe."\r\n";
+	 $inscription .= "Date de Naissance :".$date."\r\n";
+	 $inscription .="Code Massar".$code_massar."\r\n";
+	 $inscription .= "Adresse : ".$adresse."\r\n";
+	 $inscription .= "Pays :".$country."\r\n";
+	 $inscription .= "Niveau d'etudes :".$niveau."\r\n";
+	 $inscription .= "Formation Choisis :".$formation."\r\n";
+	//  $inscription .= "Photo du condidat : ".$photo;
+
+	 if(mail($to,$subject,$inscription)){
+		$message_sent= true;
+	  }else{
+		$message_sent=false;
+	  }
+	
+	
+	}
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
-<html lang="en"><!-- Basic -->
+<html lang="fr"><!-- Basic -->
 <head>
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">   
@@ -8,7 +55,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
  
      <!-- Site Metas -->
-    <title>Gateway Academy - </title>  
+    <title>Gateway Academy - préinscription </title>  
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -60,10 +107,10 @@
               <li><a href="../tech-recep-detail.html">Technicien En Réception D'Hôtel</a></li>
             </ul>
           </li>
-          <li><a href="../inscription.html">Dossier D'inscription</a></li>
-          <li><a href="../gallery.html">Galerie</a></li>
+          <li class="active"><a href="preinscription.html">Préinscription </a></li>
+          <li> <a href="../gallery.html">Galerie</a></li>
 
-          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../contact.hphp">Contact</a></li>
  
         </ul>
       </nav><!-- .nav-menu -->
@@ -85,26 +132,87 @@
 			   </div> 
 		</div>
 	</div>
-	<!-- End All Pages -->
 	
-	<!-- Start Reservation -->
-	<div class="reservation-box">
-		<div class="container">
-			<div class="row">
+	 <!-- ======= register Section ======= -->
+	 <section id="about" class="about">
+		<div class="container" data-aos="fade-up">
+		  <div class="row">
 				<div class="col-lg-12">
 					<div class="heading-title text-center">
-						<h2>La Préinscription</h2>
+						<!-- <h2>La Préinscription</h2> -->
 					</div>
 				</div>
 			</div>
+		  <div class="row">
+			<div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+			  <img src="../assets/img/inscription.jpg" class="img-fluid" alt="">
+			</div>
+			<div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
+			 <p class="font-italic">
+				L'inscription n'est pas définitive que sous condition de fournir les documents exigés.
+			  </p> 
+			  <h3>Pièces À Joindre Au Dossier D'inscription :
+			  </h3>
+			  <ul>
+				<li><i class="icofont-check-circled"></i> 01 Demande de candidature à compléter  </li>
+				<li><i class="icofont-check-circled"></i>04 Photocopies certifiées du baccalauréat (bacheliers)</li>
+				<li><i class="icofont-check-circled"></i> 04 certificats de scolarité originaux du niveau d’étude, datée au 10 juillet de l’année en cours pour les candidats du niveau bac</li>
+				<li><i class="icofont-check-circled"></i> 05 Photocopies légalisées de la carte d’identité nationale</li>
+				<li><i class="icofont-check-circled"></i> 16 Photos d’identité format passeport</li>
+				<li><i class="icofont-check-circled"></i> 04 Extraits de l’acte de naissance</li>
+				<li><i class="icofont-check-circled"></i> 01 Reçu de règlement des frais d’inscription</li>
+				<li><i class="icofont-check-circled"></i> 10 Enveloppes ( 10 Timbres - tarif en vigueur )</li>
+				<li><i class="icofont-check-circled"></i> 01 Certificat d’aptitude physique (pour la filiére ATAM)</li>
+  
+			  </ul>
+			  
+			 </div>
+		  </div>
+		  <div class="row">
+			<div class="col-lg-12 col-sm-12 col-xs-12">
+			<?php
+      if($message_sent):
+      ?>
+                <div class="row mt-5">
+                <div class="col-lg-4">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <strong>préinscription terminée</strong> 
+                </div>
+                
+                <script>
+                  $(".alert").alert();
+                </script>
+              
+                </div>
+
+     <?php
+	 else:
+	 ?>
+			<p class="font-italic">
+					Pour valider votre inscription, veuillez tout d'abord remplis le formulaire de <strong>préinscription</strong> suivant :
+				  </p>
+				  <?php
+     endif;
+     ?>	
+			</div>
+		</div>
+  
+		</div>
+	  </section>
+	  <!-- End register Section -->
+	
+	<!-- Start Préinscription -->
+	<div class="reservation-box">
+		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-sm-12 col-xs-12">
 					<div class="contact-block">
-						<form id="contactForm">
+						<form action="preinscription.php" method="POST" id="contactForm">
 							<div class="row">
-								
 								<div class="col-md-6">
-									
 									<div class="col-md-12">
 										<div class="form-group">
 											<input type="text" class="form-control" id="lastName" name="lastName" placeholder="Nom" required data-error="Please enter your name">
@@ -132,7 +240,7 @@
 									<div class="col-md-12">
 										<div class="form-group">
 											<div class="form-group">
-												<select class="custom-select d-block form-control" id="sexe" required data-error="Please select Person Sexe">
+												<select class="custom-select d-block form-control" name="sexe" id="sexe" required data-error="Please select Person Sexe">
 												  <option disabled selected>Sexe*</option>
 												  <option value="Femme">Femme</option>
 												  <option value="Homme">Homme</option>
@@ -164,14 +272,15 @@
 										</div> 
 									</div>
 									<div class="col-md-12">
-										<div class="form-group">
+										<div class="form-group file-area">
 											<input type="file" 
 											placeholder="Votre photo" 
 											id="photo" 
-											class="form-control"
+											class="form-control "
 											 name="photo"
 											  required data-error="Please enter your picture">
 											<div class="help-block with-errors"></div>
+											
 										</div> 
 									</div>
 									<div class="col-md-12">
@@ -188,7 +297,7 @@
 			
 									<div class="col-md-12">
 										<div class="form-group">
-											<select class="custom-select d-block form-control" id="person" required data-error="Please select Person">
+											<select class="custom-select d-block form-control" id="country" name="country" required data-error="Please select Country">
 											  <option disabled selected>Nationalité</option>
 											  <option value="Afghanistan">Afghanistan</option>
 											  <option value="Åland Islands">Åland Islands</option>
@@ -440,7 +549,7 @@
 									</div>
 									<div class="col-md-12">
 										<div class="form-group">
-											<select class="custom-select d-block form-control" id="person" required data-error="Please select Person">
+											<select class="custom-select d-block form-control" id="niveau" name="niveau" required data-error="Please select your level">
 											  <option disabled selected>Votre Niveau d'Etudes*</option>
 											  <option>Baccalauréat en cours de preparation</option>
 											  <option>Niveau Baccalauréat</option>
@@ -452,7 +561,7 @@
 									</div>
 									<div class="col-md-12">
 										<div class="form-group">
-											<select class="custom-select d-block form-control" id="person" required data-error="Please select Person">
+											<select class="custom-select d-block form-control" id="formation" name="formation" required data-error="Please select formation">
 											  <option disabled selected>Choisissez Votre Formation*</option>
 											  <option value="Hôtesse De L'air Et Steward">Hôtesse De L'air Et Steward</option>
 											  <option value="Technicien En Réception D'Hôtel">Technicien En Réception D'Hôtel</option>
@@ -466,7 +575,7 @@
 								</div>
 								<div class="col-md-12">
 									<div class="submit-button text-center">
-										<button class="btn btn-common" id="submit" type="submit">Envoyer</button>
+										<button class="btn btn-common" name="submit" id="submit" type="submit">Envoyer</button>
 										<div id="msgSubmit" class="h3 text-center hidden"></div> 
 										<div class="clearfix"></div> 
 									</div>
@@ -518,11 +627,11 @@
               <div class="col-lg-2 col-md-6 footer-links">
                 <h4>Liens</h4>
                 <ul>
-                  <li><i class="bx bx-chevron-right"></i> <a href="index.html">Accueil</a></li>
-                  <li><i class="bx bx-chevron-right"></i> <a href="courses.html">Formation</a></li>
-                  <li><i class="bx bx-chevron-right"></i> <a href="inscription.html">Dossier d'inscription</a></li>
-                  <li><i class="bx bx-chevron-right"></i><a href="gallery.html">Galerie</a> </li>
-                  <li><i class="bx bx-chevron-right"></i> <a href="contact.html">Contact</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="../index.html">Accueil</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="../courses.html">Formation</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="../preinscription.php">Préinscription</a></li>
+                  <li><i class="bx bx-chevron-right"></i><a href="../gallery.html">Galerie</a> </li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="../contact.php">Contact</a></li>
                 </ul>
               </div>
     
@@ -530,8 +639,8 @@
                 <h4>Nos Formations</h4>
                 <ul>
                   <li><i class="bx bx-chevron-right"></i> <a href="#">Accueil Dans le Transport Aérien Et Maritime (ATAM)</a></li>
-                  <li><i class="bx bx-chevron-right"></i> <a href="assist-market-hotel-detail.html">Assistanct En Marketing Touristique Et Hôtelier</a></li>
-                  <li><i class="bx bx-chevron-right"></i> <a href="tech-recep-detail.html">Technicien En Réception d'Hôtel</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="../assist-market-hotel-detail.html">Assistanct En Marketing Touristique Et Hôtelier</a></li>
+                  <li><i class="bx bx-chevron-right"></i> <a href="../tech-recep-detail.html">Technicien En Réception d'Hôtel</a></li>
                 </ul>
               </div>
     

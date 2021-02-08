@@ -12,7 +12,7 @@ body {
   font-family: "Open Sans", sans-serif;
   color: #444444;
 }
-
+error-message
 a {
   color: #00ABE3;
 }
@@ -1432,7 +1432,7 @@ section {
 .contact .php-email-form .error-message {
   display: none;
   color: #fff;
-  background: #ed3c0d;
+  background: #a52828;
   text-align: left;
   padding: 15px;
   font-weight: 600;
@@ -1445,7 +1445,7 @@ section {
 .contact .php-email-form .sent-message {
   display: none;
   color: #fff;
-  background: #18d26e;
+  background: #0b9c4f;
   text-align: center;
   padding: 15px;
   font-weight: 600;

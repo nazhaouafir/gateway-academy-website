@@ -1,3 +1,34 @@
+<?php
+
+print_r($_POST);
+$message_sent= false;
+  if(isset($_POST['envoyer'])){
+
+     $fullName = htmlspecialchars($_POST['name']);
+     $email = trim(htmlspecialchars($_POST['email']));
+     $subject = htmlspecialchars($_POST['subject']);
+     $message = htmlspecialchars($_POST['message']);
+
+      $to = "contact@gateway-academy.com";
+      $content = "From : ".$fullName. "\r\n";
+      $content .= "Email : ".$email. "\r\n";
+      $content .= "Message : ".$message. "\r\n";
+      
+       
+     if( mail($to,$subject,$content)){
+       $message_sent= true;
+     }else{
+       $message_sent=false;
+     }
+   
+    
+  }
+  
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,13 +36,13 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title> Inscription - Gateway Academy </title>
+  <title>Contact - Gateway Academy</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <!-- Favs -->
+  <link href="assets/img/favicon.png" rel="">
+  <link href="assets/img/apple-touch-.png" rel="apple-touch-">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -19,18 +50,20 @@
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/boxs/css/boxs.min.css" rel="stylesheet">
+  <link href="assets/vendor/remix/remix.css" rel="stylesheet">
   <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="assets/vendor/animate.css/animate.min.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-
 </head>
 
 <body>
+
+  
+
 
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
@@ -42,7 +75,7 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li ><a href="index.html">Accueil</a></li>
+          <li class="active"><a href="index.html">Accueil</a></li>
           <li class="drop-down"><a href="courses.html">Formations</a>
             <ul>
               <li class="drop-down"><a href="#">Accueil Dans le Transport Aérien et Maritime(ATAM)</a>
@@ -57,65 +90,122 @@
               <li><a href="tech-recep-detail.html">Technicien En Réception D'Hôtel</a></li>
             </ul>
           </li>
-          <li class="active"><a href="inscription.html">Dossier D'inscription</a></li>
+          <li><a href="./preinscription/preinscription.php">Préinscription </a></li>
           <li><a href="gallery.html">Galerie</a></li>
 
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.php">Contact</a></li>
  
         </ul>
       </nav><!-- .nav-menu -->
     </div>
   </header><!-- End Header -->
 
+ 
   <main id="main">
+
     <!-- ======= Breadcrumbs ======= -->
     <div class="breadcrumbs" data-aos="fade-in">
       <div class="container">
-        <h2>Dossier Administratif D'inscription
-        </h2>
-        
+    <h3>Contact</h3>
       </div>
     </div><!-- End Breadcrumbs -->
 
-    <!-- ======= register Section ======= -->
-    <section id="about" class="about">
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+ 
+      <div data-aos="fade-up">
+        <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13585.653413473294!2d-7.9999909!3d31.6499091!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8176c43122db9437!2sGateway%20Academy%20Marrakech!5e0!3m2!1sen!2sma!4v1612219264715!5m2!1sen!2sma" frameborder="0"  allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+      </div>
       <div class="container" data-aos="fade-up">
+      <!-- si le message est envoyé -->
+      <?php
+      if($message_sent):
+      ?>
+                <div class="row mt-5">
+                <div class="col-lg-4">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <strong>Message Envoyé</strong> 
+                </div>
+                
+                <script>
+                  $(".alert").alert();
+                </script>
+              
+                </div>
+     <?php
+     endif;
+     ?>
+          
+        <div class="row mt-5">
 
-        <div class="row">
-          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
-            <img src="assets/img/inscription.jpg" class="img-fluid" alt="">
+          <div class="col-lg-4">
+            <div class="info">
+              <div class="address">
+                <i class="icofont-google-map"></i>
+                <h4>Emplacement</h4>
+                <p>Résidence Kawtar
+                  2ème Etage N° 8 Et 14 Boulevard Allal Al Fassi
+                  <br>Marrakech</p>
+              </div>
+
+              <div class="email">
+                <i class="icofont-envelope"></i>
+                <h4>Email:</h4>
+                <p>gatewayacademyrak@gmail.com</p>
+              </div>
+         
+              <div class="phone">
+                <i class="icofont-phone"></i>
+                <h4>Téléphone</h4>
+                <p>(+212)524-292459 <br>
+                  (+212)681-600620</p>
+              </div>
+
+            </div>
+
           </div>
-          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-           <p class="font-italic">
-              L'inscription n'est définitive que sous condition de fournir les documents exigés.
-            </p> 
-            <h3>Pièces À Joindre Au Dossier D'inscription :
-            </h3>
-            
-            <ul>
-              <li><i class="icofont-check-circled"></i> 01 Demande de candidature à compléter  </li>
-              <li><i class="icofont-check-circled"></i>04 Photocopies certifiées du baccalauréat (bacheliers)</li>
-              <li><i class="icofont-check-circled"></i> 04 certificats de scolarité originaux du niveau d’étude, datée au 10 juillet de l’année en cours pour les candidats du niveau bac</li>
-              <li><i class="icofont-check-circled"></i> 05 Photocopies légalisées de la carte d’identité nationale</li>
-              <li><i class="icofont-check-circled"></i> 16 Photos d’identité format passeport</li>
-              <li><i class="icofont-check-circled"></i> 04 Extraits de l’acte de naissance</li>
-              <li><i class="icofont-check-circled"></i> 01 Reçu de règlement des frais d’inscription</li>
-              <li><i class="icofont-check-circled"></i> 10 Enveloppes ( 10 Timbres - tarif en vigueur )</li>
-              <li><i class="icofont-check-circled"></i> 01 Certificat d’aptitude physique (pour la filiére ATAM)</li>
+      
+          <div class="col-lg-8 mt-5 mt-lg-0">
+      
+          <form action="contact.php" method="post">
+         <div class="form-row">
+             <div class="col-md-6 form-group">
+             <label for="name">Nome t Prénom</label>
+             <input class="form-control" name="name" type="text">
+             </div>
+             <div class="col-md-6 form-group">
+             <label for="email">E-mail</label>
+             <input class="form-control" name="email" type="email">
+             </div>            
+         </div>
+         <div class="form-group">
+              <label for="subject">Sujet</label>
+             <input class="form-control" name="subject" type="text">
+             </div>
+         <div class="form-group">
+         <label for="message">Message</label>
+             <textarea class="form-control" name="message" id="" cols="30" rows="10"></textarea>
+             </div>
+             <div class="text-center">
+              <button type="submit" name="envoyer">Envoyer</button>
+              <button type="reset">Reset</button>
+             </div>
+   
+    
+    </form>
+           
+          </div>
 
-            </ul>
-            <p class="font-italic">
-              veuillez remplis le formulaire de préinscription <a href="preinscription/preinscription.html">ici</a>
-            </p> 
-           </div>
         </div>
 
       </div>
-    </section>
-    <!-- End register Section -->
-
+    </section><!-- End Contact Section -->
 
   </main><!-- End #main -->
+
     <!-- ======= Footer ======= -->
     <footer id="footer">
 
@@ -196,6 +286,7 @@
         </div>
       </div>
     </footer><!-- End Footer -->
+
 
   <a href="#" class="back-to-top"><i class="bx bx-up-arrow-alt"></i></a>
   <div id="preloader"></div>
